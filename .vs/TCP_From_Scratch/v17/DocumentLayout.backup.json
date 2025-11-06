@@ -1,0 +1,171 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{913CA916-2702-415D-8A1F-6E8AE35A47E6}|Server\\Server.csproj|c:\\users\\harry\\desktop\\repos\\tcp_from_scratch\\server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{913CA916-2702-415D-8A1F-6E8AE35A47E6}|Server\\Server.csproj|solutionrelative:server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAAF9519-6D62-466D-8C86-32B92D9BADA5}|Shared\\Shared.csproj|c:\\users\\harry\\desktop\\repos\\tcp_from_scratch\\shared\\winsock\\socket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAAF9519-6D62-466D-8C86-32B92D9BADA5}|Shared\\Shared.csproj|solutionrelative:shared\\winsock\\socket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAAF9519-6D62-466D-8C86-32B92D9BADA5}|Shared\\Shared.csproj|c:\\users\\harry\\desktop\\repos\\tcp_from_scratch\\shared\\winsock\\sockaddr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAAF9519-6D62-466D-8C86-32B92D9BADA5}|Shared\\Shared.csproj|solutionrelative:shared\\winsock\\sockaddr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAAF9519-6D62-466D-8C86-32B92D9BADA5}|Shared\\Shared.csproj|c:\\users\\harry\\desktop\\repos\\tcp_from_scratch\\shared\\winsock\\addressfamilies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAAF9519-6D62-466D-8C86-32B92D9BADA5}|Shared\\Shared.csproj|solutionrelative:shared\\winsock\\addressfamilies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAAF9519-6D62-466D-8C86-32B92D9BADA5}|Shared\\Shared.csproj|c:\\users\\harry\\desktop\\repos\\tcp_from_scratch\\shared\\winsock\\sockettype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAAF9519-6D62-466D-8C86-32B92D9BADA5}|Shared\\Shared.csproj|solutionrelative:shared\\winsock\\sockettype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAAF9519-6D62-466D-8C86-32B92D9BADA5}|Shared\\Shared.csproj|c:\\users\\harry\\desktop\\repos\\tcp_from_scratch\\shared\\winsock\\senddataflags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAAF9519-6D62-466D-8C86-32B92D9BADA5}|Shared\\Shared.csproj|solutionrelative:shared\\winsock\\senddataflags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAAF9519-6D62-466D-8C86-32B92D9BADA5}|Shared\\Shared.csproj|c:\\users\\harry\\desktop\\repos\\tcp_from_scratch\\shared\\winsock\\addressip4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAAF9519-6D62-466D-8C86-32B92D9BADA5}|Shared\\Shared.csproj|solutionrelative:shared\\winsock\\addressip4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EAAF9519-6D62-466D-8C86-32B92D9BADA5}|Shared\\Shared.csproj|c:\\users\\harry\\desktop\\repos\\tcp_from_scratch\\shared\\winsock\\wsadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EAAF9519-6D62-466D-8C86-32B92D9BADA5}|Shared\\Shared.csproj|solutionrelative:shared\\winsock\\wsadata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Harry\\Desktop\\Shared\\WS2\\SendDataFlags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SocketType.cs",
+              "DocumentMoniker": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Shared\\WinSock\\SocketType.cs",
+              "RelativeDocumentMoniker": "Shared\\WinSock\\SocketType.cs",
+              "ToolTip": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Shared\\WinSock\\SocketType.cs",
+              "RelativeToolTip": "Shared\\WinSock\\SocketType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T06:31:14.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AddressIP4.cs",
+              "DocumentMoniker": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Shared\\WinSock\\AddressIP4.cs",
+              "RelativeDocumentMoniker": "Shared\\WinSock\\AddressIP4.cs",
+              "ToolTip": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Shared\\WinSock\\AddressIP4.cs",
+              "RelativeToolTip": "Shared\\WinSock\\AddressIP4.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T06:25:49.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AddressFamilies.cs",
+              "DocumentMoniker": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Shared\\WinSock\\AddressFamilies.cs",
+              "RelativeDocumentMoniker": "Shared\\WinSock\\AddressFamilies.cs",
+              "ToolTip": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Shared\\WinSock\\AddressFamilies.cs",
+              "RelativeToolTip": "Shared\\WinSock\\AddressFamilies.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T06:25:38.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "WSAData.cs",
+              "DocumentMoniker": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Shared\\WinSock\\WSAData.cs",
+              "RelativeDocumentMoniker": "Shared\\WinSock\\WSAData.cs",
+              "ToolTip": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Shared\\WinSock\\WSAData.cs",
+              "RelativeToolTip": "Shared\\WinSock\\WSAData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T06:06:25.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SockAddr.cs",
+              "DocumentMoniker": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Shared\\WinSock\\SockAddr.cs",
+              "RelativeDocumentMoniker": "Shared\\WinSock\\SockAddr.cs",
+              "ToolTip": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Shared\\WinSock\\SockAddr.cs",
+              "RelativeToolTip": "Shared\\WinSock\\SockAddr.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T05:36:17.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Server\\Program.cs",
+              "RelativeDocumentMoniker": "Server\\Program.cs",
+              "ToolTip": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Server\\Program.cs",
+              "RelativeToolTip": "Server\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T05:32:41.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Socket.cs",
+              "DocumentMoniker": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Shared\\WinSock\\Socket.cs",
+              "RelativeDocumentMoniker": "Shared\\WinSock\\Socket.cs",
+              "ToolTip": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Shared\\WinSock\\Socket.cs",
+              "RelativeToolTip": "Shared\\WinSock\\Socket.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAIAwwDMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T08:48:12.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SendDataFlags.cs",
+              "DocumentMoniker": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Shared\\WinSock\\SendDataFlags.cs",
+              "RelativeDocumentMoniker": "Shared\\WinSock\\SendDataFlags.cs",
+              "ToolTip": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Shared\\WinSock\\SendDataFlags.cs",
+              "RelativeToolTip": "Shared\\WinSock\\SendDataFlags.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T08:47:49.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SendDataFlags.cs",
+              "DocumentMoniker": "C:\\Users\\Harry\\Desktop\\Shared\\WS2\\SendDataFlags.cs",
+              "RelativeDocumentMoniker": "..\\..\\Shared\\WS2\\SendDataFlags.cs",
+              "ToolTip": "C:\\Users\\Harry\\Desktop\\Shared\\WS2\\SendDataFlags.cs",
+              "RelativeToolTip": "..\\..\\Shared\\WS2\\SendDataFlags.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T08:47:28.844Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

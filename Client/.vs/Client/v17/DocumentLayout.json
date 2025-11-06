@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Client\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5EA04998-DE62-4A53-B998-7B2606D72520}|..\\Server\\Server.csproj|c:\\users\\harry\\desktop\\repos\\tcp_from_scratch\\server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62B0E7D1-88FF-4A10-BBDB-3479BA68EBF3}|Client.csproj|c:\\users\\harry\\desktop\\repos\\tcp_from_scratch\\client\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62B0E7D1-88FF-4A10-BBDB-3479BA68EBF3}|Client.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Server\\Program.cs",
+              "RelativeDocumentMoniker": "..\\Server\\Program.cs",
+              "ToolTip": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Server\\Program.cs",
+              "RelativeToolTip": "..\\Server\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T08:11:50.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Client\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Harry\\Desktop\\Repos\\TCP_From_Scratch\\Client\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T08:10:35.685Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
