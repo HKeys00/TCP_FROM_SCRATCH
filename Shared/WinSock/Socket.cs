@@ -22,6 +22,12 @@ namespace Shared.WinSock
         [DllImport("ws2_32.dll")]
         static extern IntPtr socket(AddressFamilies family, SocketType type, short protocol);
 
+        [DllImport("ws2_32.dll")]
+        static extern int connect(IntPtr socket, ref SockAddr address, nint length);
+
+        [DllImport("Ws2_32.dll", CharSet = CharSet.Unicode, EntryPoint = "InetPtonW")]
+        static extern uint inet_pton(AddressFamilies family, string address, ref AddressIP4 buffer);
+
         public int Bind(nint socket, ref SockAddr address, int addressSize)
         {
             return bind(socket, ref address, addressSize);
@@ -50,5 +56,16 @@ namespace Shared.WinSock
         {
             return socket(family, type, protocol);
         }
+
+        public Int32 ConnectTo(IntPtr socket , ref SockAddr address, int addressSize)
+        {
+            return connect(socket, ref address, addressSize);
+        }
+
+        public uint Inet(AddressFamilies family, string addres, ref AddressIP4 buffer)
+        {
+            return inet_pton(family, addres, ref buffer);
+        }
+
     }
 }
