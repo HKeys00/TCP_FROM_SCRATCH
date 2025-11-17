@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Shared.WinSock
+{
+    public struct WSAData
+    {
+        public ushort wVersion;
+        public ushort wHighVersion;
+
+        public ushort iMaxSockets;
+
+        public ushort iMaxUdpDg;
+    }
+}
