@@ -1,5 +1,9 @@
-﻿namespace Shared.WinSock
+﻿using System.Runtime.InteropServices;
+
+namespace Shared.WinSock
 {
+
+    [StructLayout(LayoutKind.Sequential)]
     public struct AddressIP4
     {
         public byte a1;

@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using System.Net;
 
 namespace Shared.WinSock
 {
@@ -7,16 +8,16 @@ namespace Shared.WinSock
     {
         public AddressFamilies Family;
 
-        public ushort Port;
+        public short Port;
 
         public AddressIP4 IpAddress;
 
         private Int64 Zero;
 
-        public SockAddr(AddressFamilies family, ushort port, AddressIP4 ip)
+        public SockAddr(AddressFamilies family, short port, AddressIP4 ip)
         {
             Family = family;
-            Port = port;
+            Port = IPAddress.HostToNetworkOrder(port);
             IpAddress = ip;
             Zero = 0;
         }

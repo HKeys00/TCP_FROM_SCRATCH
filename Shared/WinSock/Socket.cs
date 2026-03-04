@@ -28,6 +28,9 @@ namespace Shared.WinSock
         [DllImport("Ws2_32.dll", CharSet = CharSet.Unicode, EntryPoint = "InetPtonW")]
         static extern uint inet_pton(AddressFamilies family, string address, ref AddressIP4 buffer);
 
+        [DllImport("Ws2_32.dll")]
+        static extern uint listen(IntPtr socket, int backlog);
+
         public int Bind(nint socket, ref SockAddr address, int addressSize)
         {
             return bind(socket, ref address, addressSize);
@@ -42,6 +45,12 @@ namespace Shared.WinSock
         {
             return send(socket, buffer, length, SendDataFlags.None, ref to, toLength);
         }
+
+        public uint Listen(nint socket, int backlog)
+        {
+            return listen(socket, backlog);
+        }
+
         public Int32 GetLastError()
         {
             return WSAGetLastError();
