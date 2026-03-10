@@ -8,7 +8,7 @@ namespace Shared.WinSock
         public static extern int bind(nint socket, ref SockAddr address, int addressSize);
 
         [DllImport("ws2_32.dll")]
-        public static extern int recv(nint socket, nint buf, int len, SendDataFlags flags, ref SockAddr from, nint fromLength);
+        public static extern int recv(nint socket, nint buf, int len, SendDataFlags flags);
 
         [DllImport("ws2_32.dll")]
         public static extern int send(nint socket, nint buff, int len, SendDataFlags flags, ref SockAddr to, nint toLength);
@@ -26,19 +26,22 @@ namespace Shared.WinSock
         static extern int connect(IntPtr socket, ref SockAddr address, nint length);
 
         [DllImport("Ws2_32.dll", CharSet = CharSet.Unicode, EntryPoint = "InetPtonW")]
-        static extern uint inet_pton(AddressFamilies family, string address, ref AddressIP4 buffer);
+        static extern IntPtr inet_pton(AddressFamilies family, string address, ref AddressIP4 buffer);
 
         [DllImport("Ws2_32.dll")]
-        static extern uint listen(IntPtr socket, int backlog);
+        static extern IntPtr listen(IntPtr socket, int backlog);
+
+        [DllImport("Ws2_32.dll")]
+        static extern IntPtr accept(IntPtr socket, IntPtr address, int addressSize);
 
         public int Bind(nint socket, ref SockAddr address, int addressSize)
         {
             return bind(socket, ref address, addressSize);
         }
 
-        public int Receive(nint socket, nint buffer, int length, ref SockAddr from, nint fromLength)
+        public int Receive(nint socket, nint buffer, int length)
         {
-            return recv(socket, buffer, length, SendDataFlags.None, ref from, fromLength);
+            return recv(socket, buffer, length, SendDataFlags.None);
         }
 
         public int SendTo(nint socket, nint buffer, int length, ref SockAddr to, nint toLength)
@@ -46,9 +49,14 @@ namespace Shared.WinSock
             return send(socket, buffer, length, SendDataFlags.None, ref to, toLength);
         }
 
-        public uint Listen(nint socket, int backlog)
+        public IntPtr Listen(nint socket, int backlog)
         {
             return listen(socket, backlog);
+        }
+
+        public IntPtr Accept(nint socket, nint address, int size)
+        {
+            return accept(socket, address, size);
         }
 
         public Int32 GetLastError()
@@ -71,9 +79,9 @@ namespace Shared.WinSock
             return connect(socket, ref address, addressSize);
         }
 
-        public uint Inet(AddressFamilies family, string addres, ref AddressIP4 buffer)
+        public IntPtr Inet(AddressFamilies family, string address, ref AddressIP4 buffer)
         {
-            return inet_pton(family, addres, ref buffer);
+            return inet_pton(family, address, ref buffer);
         }
 
     }
