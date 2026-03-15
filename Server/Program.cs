@@ -1,4 +1,6 @@
-﻿using Shared.WinSock;
+﻿using Shared.WinSock.Address;
+using Shared.WinSock.Enums;
+using Shared.WinSock.Socket;
 using System.Runtime.InteropServices;
 
 Socket socket = new Socket();

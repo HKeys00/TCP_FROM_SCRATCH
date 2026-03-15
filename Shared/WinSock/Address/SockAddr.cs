@@ -1,7 +1,8 @@
 ﻿using System.Runtime.InteropServices;
 using System.Net;
+using Shared.WinSock.Enums;
 
-namespace Shared.WinSock
+namespace Shared.WinSock.Address
 {
     [StructLayout(LayoutKind.Sequential)]
     public struct SockAddr
@@ -12,7 +13,7 @@ namespace Shared.WinSock
 
         public AddressIP4 IpAddress;
 
-        private Int64 Zero;
+        private long Zero;
 
         public SockAddr(AddressFamilies family, short port, AddressIP4 ip)
         {

@@ -1,6 +1,7 @@
-﻿using Shared.WinSock;
+﻿using Shared.WinSock.Address;
+using Shared.WinSock.Enums;
+using Shared.WinSock.Socket;
 using System.Runtime.InteropServices;
-await Task.Delay(15000);
 
 Socket socket = new Socket();
 var address = new SockAddr(AddressFamilies.AF_INET, 5555, AddressIP4.Loopback);

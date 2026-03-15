@@ -1,4 +1,4 @@
-﻿namespace Shared.WinSock
+﻿namespace Shared.WinSock.Enums
 {
     public enum AddressFamilies : short
     {
