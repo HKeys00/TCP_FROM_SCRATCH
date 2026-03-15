@@ -1,6 +1,4 @@
-﻿using Shared;
-using Shared.WinSock;
-using System.Drawing;
+﻿using Shared.WinSock;
 using System.Runtime.InteropServices;
 
 Socket socket = new Socket();
@@ -26,7 +24,7 @@ unsafe
         var connected = socket.Accept(s, IntPtr.Zero, 0);
 
         m = socket.GetLastError();
-        var received = socket.Receive(s, (IntPtr)buffer, bufferLength);
+        var received = socket.Receive(connected, (IntPtr)buffer, bufferLength);
         m = socket.GetLastError();
 
         var r = 0;

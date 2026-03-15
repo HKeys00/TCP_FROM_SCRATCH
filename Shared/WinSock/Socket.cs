@@ -11,7 +11,7 @@ namespace Shared.WinSock
         public static extern int recv(nint socket, nint buf, int len, SendDataFlags flags);
 
         [DllImport("ws2_32.dll")]
-        public static extern int send(nint socket, nint buff, int len, SendDataFlags flags, ref SockAddr to, nint toLength);
+        public static extern int send(nint socket, nint buff, int len, SendDataFlags flags);
 
         [DllImport("ws2_32.dll", CharSet = CharSet.Auto)]
         static extern Int32 WSAGetLastError();
@@ -44,9 +44,9 @@ namespace Shared.WinSock
             return recv(socket, buffer, length, SendDataFlags.None);
         }
 
-        public int SendTo(nint socket, nint buffer, int length, ref SockAddr to, nint toLength)
+        public int Send(nint socket, nint buffer, int length)
         {
-            return send(socket, buffer, length, SendDataFlags.None, ref to, toLength);
+            return send(socket, buffer, length, SendDataFlags.None);
         }
 
         public IntPtr Listen(nint socket, int backlog)
