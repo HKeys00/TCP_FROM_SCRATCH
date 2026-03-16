@@ -30,11 +30,21 @@ namespace Shared.WinSock.Socket
             Handle = socket(AddressFamilies.AF_INET, SocketType.SOCK_STREAM, 0);
 
             int error = 0;
-
             error = bind(Handle, ref _address, _addressSize);
+
+            if (error != 0)
+            {
+                throw new Exception($"Error occured during socket binding with code : {error}");
+            }
 
             int enableAddressReuse = 1;
             error = setsockopt(Handle, SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, ref enableAddressReuse, sizeof(int));
+
+            if (error != 0)
+            {
+                throw new Exception($"Error occured during set socket options with code : {error}");
+            }
+
         }
 
         #region External Methods
@@ -104,15 +114,62 @@ namespace Shared.WinSock.Socket
         /// Returns SOCKET_ERROR (-1) on failure. Use WSAGetLastError() to retrieve the error code.
         /// </returns>
         [DllImport("Ws2_32.dll")]
-        public static extern int setsockopt(IntPtr s, SocketOptionLevel level, SocketOptionName optname, ref int optval, int optlen);
+        static extern int setsockopt(IntPtr s, SocketOptionLevel level, SocketOptionName optname, ref int optval, int optlen);
+
+
+        /// <summary>
+        /// Accepts an incoming connection from the listening socket.
+        /// Creates a new socket for communicating with the connected client.
+        /// </summary>
+        /// <param name="socket">The listening socket.</param>
+        /// <param name="address">Pointer to a buffer that receives the client's address (optional).</param>
+        /// <param name="size">Size of the address buffer.</param>
+        /// <returns>
+        /// Returns a new socket handle for the connected client.
+        /// Returns INVALID_SOCKET on failure.
+        /// </returns>
+        [DllImport("Ws2_32.dll")]
+        static extern nint accept(nint socket, nint address, int addressSize);
 
         #endregion
 
         #region Methods
 
+        /// <summary>
+        /// Creates a new unconnected Tcp client.
+        /// </summary>
+        /// <returns>The new tcp client.</returns>
+        public static TcpClient Create()
+        {
+            var handle = socket(AddressFamilies.AF_INET, SocketType.SOCK_STREAM, 0);
+            return new TcpClient(handle, false);
+        }
+
+        /// <summary>
+        /// Starts listening on the address.
+        /// </summary>
         public void Start()
         {
-            listen(Handle, BacklogMaxSize);
+            nint error = listen(Handle, BacklogMaxSize);
+            if (error != 0)
+            {
+                throw new Exception($"Error occured during set socket options with code : {error}");
+            }
+        }
+
+        /// <summary>
+        /// Creates a new TcpClient that accepts a connection.
+        /// </summary>
+        /// <returns>The new tcp client.</returns>
+        public async Task<TcpClient> AcceptAsync()
+        {
+            nint connected = 0;
+            await Task.Run(() =>
+            {
+                connected = accept(Handle, IntPtr.Zero, 0);
+            });
+            var client = new TcpClient(connected, true);
+            return client;
         }
 
         #endregion

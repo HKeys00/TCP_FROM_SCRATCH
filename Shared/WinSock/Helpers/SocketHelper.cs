@@ -5,8 +5,14 @@ namespace Shared.WinSock
 {
     public class SocketHelper
     {
+        #region External Methods
+
         [DllImport("Ws2_32.dll", CharSet = CharSet.Unicode, EntryPoint = "InetPtonW")]
         static extern IntPtr inet_pton(AddressFamilies family, string address, ref AddressIPv4 buffer);
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         /// Converts an IPv4 address into numeric binary form
@@ -19,5 +25,7 @@ namespace Shared.WinSock
         {
             return inet_pton(family, address, ref buffer);
         }
+
+        #endregion
     }
 }

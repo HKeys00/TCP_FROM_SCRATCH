@@ -1,35 +1,23 @@
 ﻿using Shared.WinSock.Address;
 using Shared.WinSock.Enums;
 using Shared.WinSock.Socket;
+using Shared.WinSock.WSA;
 using System.Runtime.InteropServices;
 
-Socket socket = new Socket();
-
-var address = new SockAddr(AddressFamilies.AF_INET, 5555, AddressIP4.Loopback);
-
-var errors = socket.WsaStartup(2, out var data);
-
-var m = socket.GetLastError();
-var s = socket.SocketCreate(AddressFamilies.AF_INET, SocketType.SOCK_STREAM, 0);
-m = socket.GetLastError();
-var t = socket.Bind(s, ref address, Marshal.SizeOf(address));
-m = socket.GetLastError();
-var l = socket.Listen(s, 1);
-m = socket.GetLastError();
-
-int bufferLength = 1024;
-unsafe
+int error = WinSockApi.Startup(2, out var data);
+if (error != 0)
 {
-    int* buffer = stackalloc int[bufferLength];
-    while (true)
-    {
-        var connected = socket.Accept(s, IntPtr.Zero, 0);
-
-        m = socket.GetLastError();
-        var received = socket.Receive(connected, (IntPtr)buffer, bufferLength);
-        m = socket.GetLastError();
-
-        var r = 0;
-    }
+    throw new Exception($"Error occured during WSA Startup with code : {error}");
 }
 
+TcpListener listener = new TcpListener(new SockAddress(AddressFamilies.AF_INET, 5555, AddressIPv4.Loopback));
+listener.Start();
+
+while (true)
+{
+    var client = await listener.AcceptAsync();
+    await Task.Run(() =>
+    {
+        client.StartServerSide();
+    });
+}

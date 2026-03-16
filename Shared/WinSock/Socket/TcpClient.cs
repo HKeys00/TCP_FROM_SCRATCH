@@ -1,22 +1,33 @@
 ﻿using Shared.WinSock.Address;
 using Shared.WinSock.Enums;
+using Shared.WinSock.WSA;
 using System.Runtime.InteropServices;
 
 namespace Shared.WinSock.Socket
 {
-    internal class TcpClient : Socket
+    public class TcpClient : Socket
     {
-        [DllImport("ws2_32.dll")]
-        public static extern int recv(nint socket, nint buf, int len, SendDataFlags flags);
+        #region Fields
 
-        [DllImport("ws2_32.dll")]
-        public static extern int send(nint socket, nint buff, int len, SendDataFlags flags);
+        private bool _isConnected;
 
-        [DllImport("ws2_32.dll")]
-        static extern int connect(nint socket, ref SockAddress address, nint length);
+        #endregion
 
-        [DllImport("Ws2_32.dll")]
-        static extern nint accept(nint socket, nint address, int addressSize);
+        #region Constructor
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TcpClient"/> class.
+        /// </summary>
+        /// <param name="handle">The reference to the socket.</param>
+        public TcpClient(nint handle, bool connected)
+        {
+            Handle = handle;
+            _isConnected = connected;
+        }
+
+        #endregion
+
+        #region External Methods
 
         /// <summary>
         /// Receives data from a connected socket.
@@ -30,10 +41,8 @@ namespace Shared.WinSock.Socket
         /// Returns 0 if the connection has been closed.
         /// Returns SOCKET_ERROR on failure.
         /// </returns>
-        public int Receive(nint socket, nint buffer, int length)
-        {
-            return recv(socket, buffer, length, SendDataFlags.None);
-        }
+        [DllImport("ws2_32.dll")]
+        public static extern int recv(nint socket, nint buf, int len, SendDataFlags flags);
 
         /// <summary>
         /// Sends data to a connected socket.
@@ -45,26 +54,8 @@ namespace Shared.WinSock.Socket
         /// Number of bytes successfully sent.
         /// Returns SOCKET_ERROR on failure.
         /// </returns>
-        public int Send(nint socket, nint buffer, int length)
-        {
-            return send(socket, buffer, length, SendDataFlags.None);
-        }
-
-        /// <summary>
-        /// Accepts an incoming connection from the listening socket.
-        /// Creates a new socket for communicating with the connected client.
-        /// </summary>
-        /// <param name="socket">The listening socket.</param>
-        /// <param name="address">Pointer to a buffer that receives the client's address (optional).</param>
-        /// <param name="size">Size of the address buffer.</param>
-        /// <returns>
-        /// Returns a new socket handle for the connected client.
-        /// Returns INVALID_SOCKET on failure.
-        /// </returns>
-        public nint Accept(nint socket, nint address, int size)
-        {
-            return accept(socket, address, size);
-        }
+        [DllImport("ws2_32.dll")]
+        public static extern int send(nint socket, nint buff, int len, SendDataFlags flags);
 
         /// <summary>
         /// Establishes a connection to a remote server.
@@ -77,9 +68,113 @@ namespace Shared.WinSock.Socket
         /// Returns 0 on success.
         /// Returns SOCKET_ERROR on failure.
         /// </returns>
-        public int Connect(nint socket, ref SockAddress address, int addressSize)
+        [DllImport("ws2_32.dll")]
+        static extern int connect(nint socket, ref SockAddress address, nint length);
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Receives data from the websocket connection.
+        /// </summary>
+        /// <param name="buffer">The buffer to receive data into.</param>
+        /// <param name="length">The length of the buffer</param>
+        /// <returns>
+        /// Returns 0 on success.
+        /// Returns SOCKET_ERROR on failure.
+        /// </returns>
+        public int Receive(nint buffer, int length)
         {
-            return connect(socket, ref address, addressSize);
+            return recv(Handle, buffer, length, SendDataFlags.None);
         }
+
+        /// <summary>
+        /// Sends data across the socket.
+        /// </summary>
+        /// <param name="buffer">The buffer data to send.</param>
+        /// <param name="length">The length of the buffer</param>
+        /// <returns>
+        /// Returns 0 on success.
+        /// Returns SOCKET_ERROR on failure.
+        /// </returns>
+        public int Send(nint buffer, int length)
+        {
+            return send(Handle, buffer, length, SendDataFlags.None);
+        }
+
+        /// <summary>
+        /// Connects to a tcp listener.
+        /// </summary>
+        /// <param name="address">The address to connect to.</param>
+        /// <param name="addressSize">The size of the address.</param>
+        /// <returns>
+        /// Returns 0 on success.
+        /// Returns SOCKET_ERROR on failure.
+        /// </returns>
+        public bool Connect(SockAddress address, int addressSize)
+        {
+            var error = connect(Handle, ref address, addressSize);
+            if (error != 0)
+            {
+                Console.WriteLine("Failed to connect");
+                return false;
+            }
+
+            _isConnected = true;
+            return true;
+        }
+
+        /// <summary>
+        /// Starts the client procesing activties.
+        /// </summary>
+        public void StartClientSide()
+        {
+            unsafe
+            {
+                int bufferLength = 1024;
+                int* buffer = stackalloc int[bufferLength];
+                while (_isConnected)
+                {
+
+                    Send((IntPtr)buffer, bufferLength);
+
+                    int error = WinSockApi.GetLastError();
+
+                    if (error != 0)
+                    {
+                        throw new Exception($"Error occured during send with code : {error}");
+                    }
+
+                    Console.WriteLine("Sent buffer");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Starts the client procesing activties.
+        /// </summary>
+        public void StartServerSide()
+        {
+            int bufferLength = 1024; 
+            unsafe
+            {
+                int* buffer = stackalloc int[bufferLength];
+                while (_isConnected)
+                {
+                    Receive((IntPtr)buffer, bufferLength);
+
+                    int error = WinSockApi.GetLastError();
+                    if (error != 0)
+                    {
+                        throw new Exception($"Error occured during recieve with code : {error}");
+                    }
+
+                    Console.WriteLine("Received buffer");
+                }
+            }
+        }
+
+        #endregion
     }
 }

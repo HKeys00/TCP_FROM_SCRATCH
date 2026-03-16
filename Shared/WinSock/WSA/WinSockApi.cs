@@ -4,13 +4,19 @@ namespace Shared.WinSock.WSA
     /// <summary>
     /// Class that managed the winsock API
     /// </summary>
-    public class WSA
+    public class WinSockApi
     {
+        #region External Methods
+
         [DllImport("ws2_32.dll", CharSet = CharSet.Auto)]
         static extern int WSAGetLastError();
 
         [DllImport("ws2_32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         static extern int WSAStartup(short wVersionRequested, out WSAData wsaData);
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         /// Gets the last wsa error to occur.
@@ -31,5 +37,7 @@ namespace Shared.WinSock.WSA
         {
             return WSAStartup(version, out data);
         }
+
+        #endregion
     }
 }
