@@ -134,19 +134,23 @@ namespace Shared.WinSock.Socket
             {
                 int bufferLength = 1024;
                 int* buffer = stackalloc int[bufferLength];
+                int i = 0;
                 while (_isConnected)
                 {
-
-                    Send((IntPtr)buffer, bufferLength);
-
-                    int error = WinSockApi.GetLastError();
-
-                    if (error != 0)
+                    if ( i < 1)
                     {
-                        throw new Exception($"Error occured during send with code : {error}");
-                    }
+                        Send((IntPtr)buffer, bufferLength);
 
-                    Console.WriteLine("Sent buffer");
+                        int error = WinSockApi.GetLastError();
+
+                        if (error != 0)
+                        {
+                            throw new Exception($"Error occured during send with code : {error}");
+                        }
+
+                        Console.WriteLine("Sent buffer");
+                        i++;
+                    }
                 }
             }
         }
@@ -162,7 +166,7 @@ namespace Shared.WinSock.Socket
                 int* buffer = stackalloc int[bufferLength];
                 while (_isConnected)
                 {
-                    Receive((IntPtr)buffer, bufferLength);
+                    var received = Receive((IntPtr)buffer, bufferLength);
 
                     int error = WinSockApi.GetLastError();
                     if (error != 0)

@@ -163,12 +163,12 @@ namespace Shared.WinSock.Socket
         /// <returns>The new tcp client.</returns>
         public async Task<TcpClient> AcceptAsync()
         {
-            nint connected = 0;
+            nint handle = 0;
             await Task.Run(() =>
             {
-                connected = accept(Handle, IntPtr.Zero, 0);
+                handle = accept(Handle, IntPtr.Zero, 0);
             });
-            var client = new TcpClient(connected, true);
+            var client = new TcpClient(handle, true);
             return client;
         }
 
